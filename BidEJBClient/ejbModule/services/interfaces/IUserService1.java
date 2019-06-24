@@ -2,9 +2,10 @@ package services.interfaces;
 
 import java.util.List;
 import javax.ejb.Remote;
-import model.User;
+
+import dto.UserDTO;
 
 @Remote
-public interface IUserService {
-	public List<User> findAll();
+public interface IUserService1 {
+	public List<UserDTO> getAll();
 }

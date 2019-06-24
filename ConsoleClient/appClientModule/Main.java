@@ -1,14 +1,18 @@
 import javax.naming.Context;
-import javax.naming.InitialContext;
 
-import model.User;
-import services.interfaces.IUserService;
+import dto.UserDTO;
+import services.interfaces.IService;
 
 public class Main {
-	public static void main(String[] args) {
+//	@EJB(lookup = "ejb:BidEAR/ejbModule/UserService!services.interfaces.IUserService1")
+//	static IUserService1 userService;
+	
+	public static void main(String[] args) {	
+		
 		try {
 			Context context = ClientUtility.getInitialContext();
-			IUserService service = (IUserService)context.lookup("java:global/BidEJB/UserService!services.interfaces.IUserService"); 
+			@SuppressWarnings("unchecked")
+			IService<UserDTO> service = (IService<UserDTO>) context.lookup("java:global/BidEAR/BidEJB/UserService"); 
 
 			// User user = new User();
 			// user.setIdUser(1);
@@ -20,7 +24,7 @@ public class Main {
 			// service.save(user);
 
 			System.out.println("Users list: ");
-			for (User u : service.findAll()) {
+			for (UserDTO u : service.getAll()) {
 				System.out.println("Id: " + u.getIdUser());
 				System.out.println("FirstName: " + u.getFirstName());
 				System.out.println("LastName: " + u.getPassword());
