@@ -17,7 +17,7 @@ import services.interfaces.IService;
 @Stateless
 public class UserService implements IService<UserDTO> {
 	
-	@EJB
+	@EJB(beanName="UserDAO")
 	private IDao<User> userDao;
 	
 	@Override

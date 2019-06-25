@@ -17,7 +17,7 @@ import services.interfaces.IService;
 @Stateless
 public class BiddingService implements IService<BiddingDTO> {
 	
-	@EJB
+	@EJB(beanName="BiddingDAO")
 	private IDao<Bidding> biddingDao;
 	
 	@Override

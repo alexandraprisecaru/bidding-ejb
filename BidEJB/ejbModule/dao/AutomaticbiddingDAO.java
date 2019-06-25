@@ -2,11 +2,11 @@ package dao;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
+//import java.util.function.Consumer;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
+//import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 
 import model.Automaticbidding;
@@ -49,17 +49,17 @@ public class AutomaticbiddingDAO implements IDao<Automaticbidding> {
 //		executeInsideTransaction(entityManager -> entityManager.remove(automaticBidding));
 	}
 	
-	  
-    private void executeInsideTransaction(Consumer<EntityManager> action) {
-        EntityTransaction tx = entityManager.getTransaction();
-        try {
-            tx.begin();
-            action.accept(entityManager);
-            tx.commit(); 
-        }
-        catch (RuntimeException e) {
-            tx.rollback();
-            throw e;
-        }
-    }
+//	  
+//    private void executeInsideTransaction(Consumer<EntityManager> action) {
+//        EntityTransaction tx = entityManager.getTransaction();
+//        try {
+//            tx.begin();
+//            action.accept(entityManager);
+//            tx.commit(); 
+//        }
+//        catch (RuntimeException e) {
+//            tx.rollback();
+//            throw e;
+//        }
+//    }
 }

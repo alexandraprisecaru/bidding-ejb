@@ -17,7 +17,7 @@ import services.interfaces.IService;
 @Stateless
 public class AutomaticBiddingService implements IService<AutomaticBiddingDTO> {
 	
-	@EJB
+	@EJB(beanName="AutomaticbiddingDAO")
 	private IDao<Automaticbidding> automaticBiddingDao;
 	
 	@Override

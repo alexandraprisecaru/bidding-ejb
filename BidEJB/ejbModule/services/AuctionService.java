@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 
 import org.modelmapper.ModelMapper;
 
@@ -18,7 +17,7 @@ import services.interfaces.IService;
 @Stateless
 public class AuctionService implements IService<AuctionDTO> {
 
-	@EJB
+	@EJB(beanName="AuctionDAO")
 	private IDao<Auction> auctionDao;
 
 	@Override
